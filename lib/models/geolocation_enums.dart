@@ -10,24 +10,17 @@ class GeolocationPermission {
   static const GeolocationPermission location = GeolocationPermission._(0);
 
   /// Android: Fine and Coarse Location
-  /// iOS: CoreLocation - Always
-  static const GeolocationPermission locationAlways =
-      GeolocationPermission._(1);
-
-  /// Android: Fine and Coarse Location
   /// iOS: CoreLocation - WhenInUse
   static const GeolocationPermission locationWhenInUse =
-      GeolocationPermission._(2);
+      GeolocationPermission._(1);
 
   static const List<GeolocationPermission> values = <GeolocationPermission>[
     location,
-    locationAlways,
     locationWhenInUse,
   ];
 
   static const List<String> _names = <String>[
     'location',
-    'locationAlways',
     'locationWhenInUse',
   ];
 
@@ -90,8 +83,6 @@ GeolocationStatus fromPermissionStatus(PermissionStatus status) {
 
 LocationPermissionLevel toPermissionLevel(GeolocationPermission permission) {
   switch (permission) {
-    case GeolocationPermission.locationAlways:
-      return LocationPermissionLevel.locationAlways;
     case GeolocationPermission.locationWhenInUse:
       return LocationPermissionLevel.locationWhenInUse;
     default:
